@@ -1,6 +1,6 @@
 {
   "name": "@oral/core",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "oral core package",
   "author": "liudongming <mrliudm@qq.com>",
   "homepage": "",
@@ -17,7 +17,7 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@oral/utils": "^0.0.2"
+    "@oral/utils": "^0.0.3"
   },
   "publishConfig": {
     "access": "public"
