@@ -7,3 +7,8 @@ function core() {
     // TODO
     console.log('exec core1')
 }
+
+
+function checkPkgVersion() {
+
+}
