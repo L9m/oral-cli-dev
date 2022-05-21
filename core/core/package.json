@@ -1,6 +1,6 @@
 {
   "name": "@oral/core",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "oral core package",
   "author": "liudongming <mrliudm@qq.com>",
   "homepage": "",
@@ -20,7 +20,7 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@oral/utils": "^0.0.4",
+    "@oral/utils": "^0.0.5",
     "import-local": "^3.1.0",
     "npmlog": "^6.0.2"
   },
