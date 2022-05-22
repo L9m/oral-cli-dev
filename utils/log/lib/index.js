@@ -3,7 +3,8 @@
 module.exports = index;
 
 const log = require('npmlog')
+log.addLevel('a', 2000, {fg: 'green'})
 
 function index() {
-    log.info('cli', 'test info1')
+    log.a('cli', 'test info1')
 }
