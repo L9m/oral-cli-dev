@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@oral/utils@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.npmjs.org/@oral/utils/-/utils-0.0.3.tgz#431ce9f9a1150f8eb6f7ab88730fc0f93c8c4779"
-  integrity sha512-S598EKVJByMYQu5D9C5msYHuUDsOqBpgyHHILRWR9OkZLUSrLPPu62cisg0bf4MR6KgYenhQC0sjjEqAkdJdcA==
+"@oral/log@file:../../utils/log":
+  version "0.0.6"
+  dependencies:
+    npmlog "^6.0.2"
 
 ansi-regex@^5.0.1:
   version "5.0.1"

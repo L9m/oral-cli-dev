@@ -4,14 +4,14 @@
 module.exports = core;
 
 const pkg = require('../package.json')
+const log = require('@oral/log')
 
 function core() {
-    // TODO
-    console.log('exec core1')
     checkPkgVersion()
 }
 
 
 function checkPkgVersion() {
     console.log(pkg.version)
+    log()
 }
