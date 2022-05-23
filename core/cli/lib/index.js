@@ -13,7 +13,8 @@ const constant = require('./const')
 function core() {
     try {
         checkPkgVersion()
-    checkNodeVersion()
+        checkNodeVersion()
+        checkRoot()
     } catch(err) {
         log.error(err.message)
     }
@@ -21,7 +22,8 @@ function core() {
 }
 
 function checkRoot() {
-    console.log(process.geteuid())
+    const rootCheck = require('root-check')
+    rootCheck()
 }
 
 function checkNodeVersion() {
