@@ -7,12 +7,14 @@ const semver = require('semver')
 const colors = require('colors/safe')
 const os = require('os')
 const pathExists = require('path-exists').sync
-
-let args
+const path = require('path');
+const log = require('@oral/log')
 
 const pkg = require('../package.json')
-const log = require('@oral/log')
 const constant = require('./const');
+
+let args, config, userHome;
+
 
 function core() {
     try {
@@ -21,6 +23,7 @@ function core() {
         checkRoot()
         checkUserHome()
         checkInputArgs()
+        checkEnv()
         log.verbose('debug', 'test budeg log')
     } catch(err) {
         log.error(err.message)
@@ -42,7 +45,7 @@ function checkNodeVersion() {
 }
 
 function checkUserHome() {
-    const userHome = os.homedir()
+    userHome = os.homedir()
     if (!userHome || !pathExists(userHome)) {
         throw new Error(colors.red('当前登录用户主目录不存在'))
     }
@@ -61,6 +64,31 @@ function checkArgs() {
         process.env.LOG_LEVEL = 'info'
     }
     log.level = process.env.LOG_LEVEL
+}
+
+function checkEnv() {
+    const dotenv = require('dotenv')
+    const dotenvPath =  path.resolve(userHome,'.env')
+    if (pathExists(dotenvPath)) {
+        config = dotenv.config({
+            path: dotenvPath
+        })
+    }
+    createDefaultConfig()
+    log.verbose('环境变量', process.env.CLI_HOME_PATH)
+}
+
+function createDefaultConfig() {
+    const cliConfig = {
+        home: userHome,
+    }
+
+    if (process.env.CLI_HOME) {
+        cliConfig['cliHome'] = path.join(userHome, process.env.CLI_HOME)
+    } else {
+        cliConfig['cliHome'] = path.join(userHome, process.env.DEFAULT_CLI_HOME)
+    }
+    process.env.CLI_HOME_PATH = cliConfig.cliHome
 }
 
 
