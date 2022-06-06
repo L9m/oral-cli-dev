@@ -1,6 +1,6 @@
 {
   "name": "@oral/cli",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "oral core package",
   "author": "liudongming <mrliudm@qq.com>",
   "homepage": "",
@@ -20,8 +20,8 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@oral/get-npm-info": "^0.0.16",
-    "@oral/log": "^0.0.16",
+    "@oral/get-npm-info": "^0.0.17",
+    "@oral/log": "^0.0.17",
     "colors": "^1.4.0",
     "dotenv": "^16.0.1",
     "import-local": "^3.1.0",
