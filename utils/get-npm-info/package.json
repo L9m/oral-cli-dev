@@ -26,6 +26,10 @@
   "dependencies": {
     "axios": "^0.27.2",
     "semver": "^7.3.7",
-    "url-join": "^5.0.0"
-  }
+    "url-join": "^4.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "f81eb4805f03d4e559ff002a4d27d4862deff052"
 }

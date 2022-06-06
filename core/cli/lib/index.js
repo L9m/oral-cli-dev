@@ -16,7 +16,7 @@ const constant = require('./const');
 let args, config, userHome;
 
 
-function core() {
+async function core() {
     try {
         checkPkgVersion()
         checkNodeVersion()
@@ -24,7 +24,7 @@ function core() {
         checkUserHome()
         checkInputArgs()
         checkEnv()
-        checkGlobalUpdate()
+        await checkGlobalUpdate()
         log.verbose('debug', 'test budeg log')
     } catch(err) {
         log.error(err.message)
@@ -67,14 +67,15 @@ function checkArgs() {
     log.level = process.env.LOG_LEVEL
 }
 
-function checkGlobalUpdate() {
+async function checkGlobalUpdate() {
     // 1.获取当前版本号和模块名
 
     const currentVersion =pkg.version
     const npmName = pkg.name
     // 2.调用 npm API ,获取所有版本号
     const {getNpmInfo} = require('@oral/get-npm-info')
-    getNpmInfo(npmName)
+    const data = await getNpmInfo(npmName)
+    console.log(data)
     // 3.提取所有版本号，比对哪些版本号大于
     // 4.获取最新的版本号
 }
