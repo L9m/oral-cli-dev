@@ -73,11 +73,12 @@ async function checkGlobalUpdate() {
     const currentVersion =pkg.version
     const npmName = pkg.name
     // 2.调用 npm API ,获取所有版本号
-    const {getNpmInfo} = require('@oral/get-npm-info')
-    const data = await getNpmInfo(npmName)
-    console.log(data)
-    // 3.提取所有版本号，比对哪些版本号大于
-    // 4.获取最新的版本号
+    const {getNpmSemverVersion} = require('@oral/get-npm-info')
+    const lastVersion = await getNpmSemverVersion(currentVersion, npmName)
+    if (lastVersion && semver.gte(lastVersion, currentVersion)) {
+        log.warn(colors.yellow(`更新提示`,`请手动更新 ${npmName}，当前版本：${currentVersion},最新版本${lastVersion}
+        更新命令：npm install -g ${npmName}`))
+    }
 }
 
 function checkEnv() {
