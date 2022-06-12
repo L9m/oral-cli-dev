@@ -12,5 +12,7 @@
   "devDependencies": {
     "lerna": "^4.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "commander": "^9.3.0"
+  }
 }
